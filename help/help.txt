@@ -1,0 +1,44 @@
+  Copyright (C) 2010, 2011 - Richard Gunn
+
+  <http://sourceforge.net/projects/bash-shortcuts/>
+
+  This program comes with ABSOLUTELY NO WARRANTY. This is free software, and
+  you are welcome to redistribute it under certain conditions. See the LICENCE
+  file for further details.
+
+Usage:
+
+  NAME     : Shortcut name
+  NEWNAME  : New shortcut name
+  TARGET   : Target directory for shortcut ('.' = current)
+  LABEL    : Shortcut description (must be in single quotes)
+
+  sc                       : list all defined shortcuts
+  sc NAME                  : change ('cd') to the shortcut directory
+  sc -a                    : add shortcut for current directory
+  sc -a NAME               : add shortcut for current directory
+  sc -a NAME TARGET        : add shortcut for target directory
+  sc -a NAME TARGET LABEL  : add shortcut with label
+  sc -d NAME               : delete an existing shortcut
+  sc -e                    : export shortcuts to BASH variables
+  sc -g NAME               : get directory path for shortcut
+  sc -h                    : this help text
+  sc -l NAME LABEL         : add label to shortcut
+  sc -r NAME NEWNAME       : rename shortcut
+  sc -t THEMENAME          : change colour scheme (light|dark|<user-theme>)
+  sc -u NAME               : update shortcut to current directory
+  sc -u NAME TARGET        : update shortcut to target directory
+  sc -v                    : get sc version info
+
+Short option | Long option | Alternative:
+
+  sc -a | sc --add     | scadd
+  sc -d | sc --delete  | scdelete
+  sc -e | sc --export  | scexport
+  sc -g | sc --get     | scget
+  sc -h | sc --help    | schelp
+  sc -l | sc --label   | sclabel
+  sc -r | sc --rename  | screname
+  sc -t | sc --theme   | sctheme
+  sc -u | sc --update  | scupdate
+  sc -v | sc --version | scversion

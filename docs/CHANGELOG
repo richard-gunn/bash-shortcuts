@@ -1,0 +1,106 @@
+#
+# BASH Shortcuts - Change History
+#
+# This file is part of BASH Shortcuts.
+#
+# <http://sourceforge.net/projects/bash-shortcuts/>
+#
+# Copyright (C) 2010, 2011 Richard Gunn
+#
+# BASH Shortcuts is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# BASH Shortcuts is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with BASH Shortcuts.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+Change History:
+
+# 1.4.1 - 2011-01-07 ###
+
+  Minor change(s):
+    - Changed the shortcuts from actual links to text files (easier to back up)
+    - Changed the link to the current theme to a text file
+
+# 1.4 - 2011-01-05 ###
+
+  Major change(s):
+    - Created a test suite for testing compatibility with non-Debian distros
+
+  Minor change(s):
+    - Shortcut list file is now deleted and recreated once when first displayed
+    - Separated out command functions (sc-commands.sh)
+    - Separated out messages (sc-messages.sh)
+    - Separated out path declarations (sc-paths.sh)
+    - Added licence notices (GPLv3) to source code
+
+# 1.3.2 - 2010-11-22 ###
+
+  Minor change(s):
+    - Standardized alternative command format: scadd, scdelete, scexport, scget,
+      schelp, sclabel, sclist, screname, scupdate, sctheme
+
+# 1.3.1 - 2010-11-21 ###
+
+  New feature(s):
+    - Partial shortcut name matching
+
+  Minor change(s):
+    - Added ./docs/CHANGELOG file (this document)
+
+# 1.3.0 - 2010-11-20 ###
+
+  New feature(s):
+    - Theme support (light and dark themes included)
+
+  Minor change(s):
+    - Re-organize file and directory structure (final configuration!)
+
+# 1.2.2 - 2010-11-19 ###
+
+  Minor change(s):
+    - Move the help text to a separate file
+    - Write the short-cut list to a separate file (improves response)
+    - Re-organize file and directory structure
+
+# 1.2.1 - 2010-10-02 ###
+
+  Minor change(s):
+    - Enhanced command 'sc -a NAME TARGET LABEL'
+
+# 1.2.0 - 2010-10-02 ###
+
+  New features(s):
+    - New command 'sc -g NAME' - return path for shortcut
+
+# 1.1.0 - 2010-10-01 ###
+
+  New feature(s):
+    - New command 'sc -l NAME LABEL' - add label to shortcut
+    - New command 'sc -r NAME NEWNAME' - rename shortcut
+
+  Minor change(s):
+    - Export now converts hyphens and full-stops (periods) to underscore when
+      creating BASH variable name
+    - Path text is now displayed below the short-cut. If a label exists then
+      the path is not shown
+    - Added colour to shortcuts list output
+    - Added colour to export list output
+
+# 1.0.1 - 2010-06 ###
+
+  Minor change(s):
+    - Command 'sc' with no options now lists shortcuts
+    - Command 'sc -a' with no options will create shortcut name from the
+      current directory
+
+# 1.0 - 2010-05 ###
+
+   - First release

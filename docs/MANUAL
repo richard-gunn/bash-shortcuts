@@ -1,0 +1,254 @@
+# NOTICES ###
+
+BASH Shortcuts
+
+<http://sourceforge.net/projects/bash-shortcuts/>
+
+Copyright (c) 2010, 2011 Richard Gunn
+
+This file is part of BASH Shortcuts.
+
+BASH Shortcuts is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+BASH Shortcuts is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with BASH Shortcuts.  If not, see <http://www.gnu.org/licenses/>.
+
+
+# INTRODUCTION ###
+
+BASH Shortcuts is a shell command that allows you to bookmark your
+favourite/often-visited directories. It's only really useful if you spend a
+significant time using the shell.
+
+Shortcuts can be created, updated, deleted, listed and exported as BASH
+environment variables.
+
+
+# INSTALLATION ###
+
+Copy or move the entire .bash-shortcuts directory to your home directory.
+
+Edit the existing file ~/.bashrc and add the following lines of code (copy and
+paste the code shown inside the dashed lines - do not include the dashed lines):
+
+--------------------------------------------------------------------------------
+
+# BASH Shortcuts - BEGIN #
+if [ -f ~/.bash-shortcuts/sc.sh ]; then
+  . ~/.bash-shortcuts/sc.sh
+fi
+# BASH Shortcuts - END #
+
+--------------------------------------------------------------------------------
+
+Open a new shell window to test the installation:
+
+  - Any errors will be reported as soon as the shell window opens
+  - Type 'sc -h' to determine whether the 'sc' command is active
+
+
+# OVERVIEW ###
+
+The shortcut commands can be expressed in three distinct forms:
+
+  1 - sc + <short-option> + parameter(s)
+    e.g. sc -d SHORTCUT
+
+  2 - sc + <long-option> + parameter(s)
+    e.g. sc --delete SHORTCUT
+
+  3 - <command-alias> + parameter(s)
+    e.g. scdelete SHORTCUT
+
+
+# SHORTCUTS AND LABELS ###
+
+Shortcuts are aliases for directory paths.
+
+Shortcuts can be defined with or without a label.
+
+IMPORTANT: Shortcut names can only contain lower-case letters, digits and
+hyphen characters. Spaces, underscores and other punctuation characters are not
+allowed - this is to ensure uniqueness when exporting to BASH variables.
+
+A label can to be added to a shortcut to replace the full path with a more
+meaningful description when the shortcuts are listed.
+
+If a shortcut is defined without a label, then it will be listed along with the
+full path to the directory that it points to.
+
+
+# GETTING COMMAND HELP ###
+
+HELP-COMMAND = sc -h | sc --help | schelp
+
+Format: HELP-COMMAND
+
+To get command help, type:
+
+> schelp
+
+
+# ADDING NEW SHORTCUTS ###
+
+ADD-COMMAND = sc -a | sc --add | scadd
+
+Format: ADD-COMMAND <shortcut-name> [<target-path>] ['<label-text>']
+
+NOTE: The label text has to be enclosed in single quotes.
+
+
+Example 1:
+
+To create a new shortcut with a default name for the current directory:
+
+> scadd
+
+
+Example 2:
+
+To create a new shortcut with a name of 'music-files' for the current directory:
+
+> scadd 'music-files'
+
+or
+
+> scadd 'music-files' .
+
+
+Example 3:
+
+To create a new shortcut with a name of 'music-files' and a label for the
+current directory:
+
+> scadd 'music-files' . 'My Favourite Music'
+
+
+Example 4:
+
+To create a new shortcut named 'music-files', with a directory path of
+'/mnt/external-drive/music-files' and a label:
+
+> scadd music-files /mnt/external-drive/music-files 'My Favourite Music'
+
+
+# LISTING SHORTCUTS ###
+
+Use command 'sc' with no parameters to list all defined shortcuts:
+
+> sc
+
+Note: There are no alternative commands to list shortcuts
+
+
+# USING A SHORTCUT ###
+
+Use command 'sc' with a shortcut name to go to the directory.
+
+Format: sc <shortcut-name>
+
+Example: To 'cd' to a shortcut named 'test-logs':
+
+> sc test-logs
+
+
+# UPDATING SHORTCUTS ###
+
+UPDATE-COMMAND = sc -u | sc --update | scupdate
+
+Same syntax as 'scadd' except the shortcut name already exists.
+
+
+# DELETING SHORTCUTS ###
+
+DELETE-COMMAND = sc -d | sc --delete | scdelete
+
+Format: DELETE-COMMAND <shortcut-name>
+
+Example: To delete a shortcut named 'test-logs', simply type:
+
+> scdelete test-logs
+
+
+# GET SHORTCUT DIRECTORY PATH ###
+
+GET-COMMAND = sc -g | sc --get | scget
+
+Format: GET-COMMAND <shortcut-name>
+
+Example: To get the directory path for shortcut named 'test-logs':
+
+> scget test-logs
+
+
+# EXPORTING SHORTCUTS ###
+
+EXPORT-COMMAND = sc -e | sc --export | scexport
+
+Format: EXPORT-COMMAND
+
+Example: To export all shortcuts to BASH variables:
+
+> scexport
+
+Note: Shortcut names will be converted to uppercase and prefixed with 'SHCUT_'
+
+
+# THEMES ###
+
+BASH Shortcuts is supplied with a 'light' and 'dark' theme. This sets the text
+colours for the shortcut names and label text in the shortcut listing.
+
+THEME-COMMAND = sc -t | sc --theme | sctheme
+
+Format: THEME-COMMAND <theme-name>
+
+Example: Use the 'light' theme
+
+> sctheme light
+
+
+# USING SHORTCUTS WITH OTHER SHELL COMMANDS ###
+
+Use the 'scget' command to retrieve the directory path for a shortcut.
+
+Example: List the contents of a shortcut named 'test-logs'
+
+> ls $( scget test-logs )
+
+
+# GNU/LINUX DISTRO COMPATIBILITY ###
+
+BASH Shortcuts was developed using Ubuntu 10.04 (Lucid Lynx). Ubuntu is a
+GNU/Linux distro based on Debian. BASH Shortcuts should run fine on other
+Debian-based distros such as Mint.
+
+BASH Shortcuts has been tested on the following distributions:
+
+  Ubuntu 10.04
+  Fedora 14
+  openSuse 11.2
+
+
+# REPORTING BUGS ###
+
+If you find a bug, then please consider raising a bug report so the developer
+can improve the quality of future releases.
+
+Bug tracking and posting can be accessed through the following link:
+
+http://sourceforge.net/projects/bash-shortcuts/support
+
+A test suite is included with BASH Shortcuts - running the test suite may help
+identify the root cause of any bugs you may encounter.
+
+Run the test suite script (./sc-test-suite.sh) and attach the latest log files
+(found in ./tests/logs) to a new bug report.
